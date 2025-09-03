@@ -1,0 +1,17 @@
+[project]
+name = "pageindex"
+version = "1.0.0"
+description = "基于大语言模型的智能文档检索系统，专门用于处理长文档的OCR数据"
+requires-python = ">=3.13"
+dependencies = [
+    "openai",
+    "python-dotenv",
+    "pyyaml",
+    "streamlit"
+]
+
+[project.scripts]
+pageindex = "run_pageindex:main"
+
+[tool.setuptools]
+packages = ["pageindex"]

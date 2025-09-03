@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  pageindex:
+    image: pageindex:latest
+    container_name: pageindex-app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./model_configs.yaml:/app/model_configs.yaml:ro
+      - ./prompt_config.yaml:/app/prompt_config.yaml:ro
+      - ./ocr_files:/app/ocr_files
+      - ./results:/app/results
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
