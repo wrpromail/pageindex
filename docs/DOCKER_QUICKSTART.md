@@ -3,9 +3,11 @@
 ## 构建镜像
 
 ```bash
-# 构建Docker镜像
+# 构建Docker镜像 (linux/amd64架构)
 ./build-docker.sh
 ```
+
+> **注意**: 构建脚本会自动指定linux/amd64平台，确保在任何环境下都能正常运行。
 
 ## 启动服务
 

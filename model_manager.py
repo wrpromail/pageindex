@@ -61,24 +61,25 @@ class ModelManager:
 
             # 加载模型配置
             for model_id, model_config in config.get('models', {}).items():
-                if model_config.get('enabled', False):
-                    # 处理环境变量
-                    api_key = self._resolve_env_var(model_config['api_key'])
-                    if api_key:
-                        self.models[model_id] = ModelConfig(
-                            name=model_config['name'],
-                            description=model_config['description'],
-                            api_key=api_key,
-                            base_url=model_config['base_url'],
-                            model_name=model_config['model_name'],
-                            max_tokens=model_config['max_tokens'],
-                            context_limit=model_config['context_limit'],
-                            temperature=model_config.get('temperature', 0.1),
-                            enabled=model_config.get('enabled', True)
-                        )
-                        # 只为新模型初始化统计信息
-                        if model_id not in self.stats:
-                            self.stats[model_id] = CallStats()
+                # 处理环境变量
+                api_key = self._resolve_env_var(model_config['api_key'])
+                if api_key:
+                    # 使用name字段作为model_name（简化后的配置）
+                    model_name = model_config['name']
+                    self.models[model_id] = ModelConfig(
+                        name=model_name,
+                        description=model_config.get('description', model_name),
+                        api_key=api_key,
+                        base_url=model_config['base_url'],
+                        model_name=model_name,  # 直接使用name字段
+                        max_tokens=model_config['max_tokens'],
+                        context_limit=model_config['context_limit'],
+                        temperature=model_config.get('temperature', 0.1),
+                        enabled=True  # 所有配置的模型都启用
+                    )
+                    # 只为新模型初始化统计信息
+                    if model_id not in self.stats:
+                        self.stats[model_id] = CallStats()
             
             # 加载场景配置
             self.scenarios = config.get('scenarios', {})
@@ -131,7 +132,6 @@ class ModelManager:
                 'description': scenario['description']
             }
             for scenario_id, scenario in self.scenarios.items()
-            if scenario.get('enabled', False)
         ]
     
     def get_model_config(self, model_id: str) -> Optional[ModelConfig]:

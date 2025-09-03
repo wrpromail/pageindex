@@ -17,57 +17,41 @@ indexing:
   toc_check_page_num: 20
 models:
   ds-r1:
+    name: deepseek-r1-250528
     api_key: b80d1503-8d91-4a98-affb-efc86890aad1
     base_url: https://ark.cn-beijing.volces.com/api/v3
     context_limit: 64000
-    description: deepseek-r1-250528
-    enabled: true
     max_tokens: 4000
-    model_name: deepseek-r1-250528
-    name: deepseek-r1-250528
     temperature: 0.1
   gpt-oss:
+    name: GPT-OSS-120B-CS
     api_key: QMcnWxkavgaW7QkPhHjGKqq_gCDIuhhRQqBf7hiqNdY
     base_url: https://api.poe.com/v1
     context_limit: 128000
-    description: OpenAI gpt-oss
-    enabled: true
     max_tokens: 4000
-    model_name: GPT-OSS-120B-CS
-    name: GPT-OSS-120B-CS
     temperature: 0.1
   qwen3-30b:
+    name: Qwen3-30B-A3B-Instruct
     api_key: QMcnWxkavgaW7QkPhHjGKqq_gCDIuhhRQqBf7hiqNdY
     base_url: https://api.poe.com/v1
     context_limit: 128000
-    description: qwen3 30b
-    enabled: true
     max_tokens: 4000
-    model_name: Qwen3-30B-A3B-Instruct
-    name: Qwen3-30B-A3B-Instruct
     temperature: 0.1
   qwen3-32b:
+    name: Qwen3-32B-CS
     api_key: QMcnWxkavgaW7QkPhHjGKqq_gCDIuhhRQqBf7hiqNdY
     base_url: https://api.poe.com/v1
     context_limit: 128000
-    description: qwen3 32b
-    enabled: true
     max_tokens: 4000
-    model_name: Qwen3-32B-CS
-    name: Qwen3-32B-CS
     temperature: 0.1
   qwen3-235b:
+    name: Qwen3-235B-2507-CS
     api_key: QMcnWxkavgaW7QkPhHjGKqq_gCDIuhhRQqBf7hiqNdY
     base_url: https://api.poe.com/v1
     context_limit: 128000
-    description: Qwen3-235B-2507-CS
-    enabled: true
     max_tokens: 4000
-    model_name: Qwen3-235B-2507-CS
-    name: Qwen3-235B-2507-CS
     temperature: 0.1
 scenarios:
   water_engineering:
-    description: 适用于水利工程、水电站、水库等文档
-    enabled: true
     name: 水利工程
+    description: 适用于水利工程、水电站、水库等文档

@@ -18,9 +18,9 @@ fi
 
 echo "✅ Docker 检查通过"
 
-# 构建镜像
-echo "🔨 开始构建 Docker 镜像..."
-docker build -t "$IMAGE_NAME:$IMAGE_TAG" .
+# 构建镜像（指定amd64平台）
+echo "🔨 开始构建 Docker 镜像 (linux/amd64)..."
+docker build --platform linux/amd64 -t "$IMAGE_NAME:$IMAGE_TAG" .
 
 if [[ $? -eq 0 ]]; then
     echo "✅ Docker 镜像构建成功!"

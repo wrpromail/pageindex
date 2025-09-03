@@ -3,6 +3,7 @@ version: '3.8'
 services:
   pageindex:
     image: pageindex:latest
+    platform: linux/amd64
     container_name: pageindex-app
     ports:
       - "8501:8501"

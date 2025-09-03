@@ -1,5 +1,5 @@
-# 使用官方的Python基础镜像
-FROM python:3.13.7-alpine3.22
+# 使用官方的Python基础镜像，指定amd64架构
+FROM --platform=linux/amd64 python:3.13.7-alpine3.22
 
 # 设置工作目录
 WORKDIR /app
